@@ -49,10 +49,10 @@ h6 {
 
 
 /* style project rows based on status (late, due today) */
-.project-late {
+/* .project-late {
   background-color: var(--lightred);
 }
 
 .project-today {
   background-color: var(--lightyellow);
-}
+} */

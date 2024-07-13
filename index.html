@@ -19,7 +19,7 @@
     <header class="p-3 mb-4 text-center header">
       <h1>Welcome to the 5 Day Forecast Dashboard!</h1>
       <h2>
-        Current Time &amp; Date: <br />
+        Your local time is: <br />
         <span id="time-display"></span>
       </h2>
     </header>
@@ -38,7 +38,7 @@
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                   <input
-                    id="forecast-search-input"
+                    id="city-search-input"
                     type="text"
                     class="form-control"
                     placeholder="Chicago"
@@ -46,8 +46,8 @@
                   />
                 </li>
                 <li class="list-group-item">
-                  <select id="project-type-input" class="form-select">
-                    <option value="US State?" disabled selected>
+                  <select id="us-state-input" class="form-select">
+                    <option value="" selected>
                       US State
                     </option>
                     <option value="AK">Alaska</option>
@@ -112,8 +112,8 @@
             </form>
           </div>
           <!-- This is where we will dump a list of buttons -->
-          <div id="dynamic-search-history">
-          <button type="submit" class="btn btn-custom col-12 d-flex">
+          <div id="history-display">
+          <!-- <button type="submit" class="btn btn-custom col-12 d-flex">
             Chicago
           </button>
           <button type="submit" class="btn btn-custom col-12 d-flex">
@@ -124,24 +124,24 @@
           </button>
           <button type="submit" class="btn btn-custom col-12 d-flex">
             Nipton
-          </button>
+          </button> -->
           </div>
         </div>
           <!-- Divider between form and forecasts -->
-        <div class="col-md col-xl-10">
-          <!-- Forecasts -->
-          <div class="col-12 d-flex">
-            <div id="forecast-today" class="card border-light mb-2 lane flex-grow-1">
+        <div  class="col-md col-xl-10">
+          <!-- Forecasts: Today's forecast goes directive in divider1 and the five-day forecast goes in divider2, which is within divider1 -->
+          <div id=divider-today class="col-12 d-flex">
+            <!-- <div id="forecast-today" class="card border-light mb-2 lane flex-grow-1">
               <div class="card-header bg-white">
                 <h2 class="card-title mb-1"><span id="today-insert-city"></span>Today <span id="today-insert-date"></span></h2>
               </div>
               <div class="card-body bg-light">
                 <div></div>
               </div>
-              </div>
+              </div> -->
           </div>
-          <div class="row swim-lanes text-center d-flex justify-content-between">
-            <div class="custom-col-20">
+          <div id=divider-5day class="row text-center d-flex justify-content-between">
+            <!-- <div class="custom-col-20">
               <div id="5day-1" class="card border-light mb-2 lane flex-grow-1">
                 <div class="card-header bg-white">
                   <h2 class="card-title mb-1">66/66/2024</h2>
@@ -190,7 +190,7 @@
                   <div></div>
                 </div>
                 </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -208,6 +208,7 @@
       integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
       crossorigin="anonymous"
     ></script>
-    <script src="./assets/js/script.js"></script>
+    <!-- <script src="./assets/js/script.js"></script> -->
+    <script src="./moar.js"></script>
   </body>
 </html>

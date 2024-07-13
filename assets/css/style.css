@@ -1,28 +1,13 @@
-:root {
-  --light: #f6f6f6;
-  --darkblue: #2c3e50;
-  --lightblue: #3498db;
-  --red: #e74c3c;
-  --lightred: #f9eae7;
-  --lightyellow: #fff5d1;
-}
-
-/* Apply custom Google font */
 body {
   font-family: 'Fira Sans', sans-serif;
   font-weight: 400;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1,h2,h4 {
   font-weight: 700;
 }
 
-/* Shared custom styles for headers */
+/* header section, header of search form, and button colors */
 .header,
 .custom-card-header,
 .btn-custom {
@@ -39,11 +24,11 @@ h6 {
 }
 
 
-.swim-lanes {
-  min-height: 60vh;
+.card {
+  min-height: 30vh;
 }
 
-#dynamic-search-history button {
+#history-display button {
   margin-bottom: 10px;
   margin-top: 10px;
 }
@@ -52,6 +37,9 @@ h6 {
   flex: 0 0 20%;
   max-width: 20%;
 }
+
+
+/* Below here is only media query stuff */
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -98,14 +86,3 @@ h6 {
   overflow: hidden;
   }
 }
-
-
-
-/* style project rows based on status (late, due today) */
-/* .project-late {
-  background-color: var(--lightred);
-}
-
-.project-today {
-  background-color: var(--lightyellow);
-} */

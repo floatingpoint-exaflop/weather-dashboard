@@ -1,7 +1,7 @@
 // ? Grab references to the important DOM elements to link to html.
 const timeDisplayEl = $('#time-display');
-const projectDisplayEl = $('#project-display');
-const projectFormEl = $('#project-form');
+const historyDisplayEl = $('#history-display');
+const searchFormEl = $('#search-form');
 const projectNameInputEl = $('#project-name-input');
 const projectTypeInputEl = $('#project-type-input');
 const projectDateInputEl = $('#taskDueDate');
@@ -79,8 +79,8 @@ function printForecastData() {
   printForecastData();
 }
 
-// ? Adds a project to local storage and prints the project data
-function handleProjectFormSubmit(event) {
+// ? Adds a forecast search to local storage and prints the forecast data for today and for five days ahead
+function handleForecastFormSubmit(event) {
   event.preventDefault();
   // ? Read user input from the form
   const projectName = projectNameInputEl.val().trim();

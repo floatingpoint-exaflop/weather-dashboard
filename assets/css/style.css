@@ -24,7 +24,6 @@ h6 {
 
 /* Shared custom styles for headers */
 .header,
-.custom-modal-header,
 .custom-card-header,
 .btn-custom {
   background-color: var(--darkblue);
@@ -46,6 +45,58 @@ h6 {
 .task-card:hover {
   cursor: grab;
 }
+
+.custom-col-20 {
+  flex: 0 0 20%;
+  max-width: 20%;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .custom-col-20 {
+  flex: 0 0 100%;
+  max-width: 100%;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .custom-col-20 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .custom-col-20 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .custom-col-20 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .card-header h2 {
+    font-size: 25px;
+    white-space: nowrap;
+  overflow: hidden;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .custom-col-20 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+  .card-header h2 {
+    font-size: 25px;
+    white-space: nowrap;
+  overflow: hidden;
+  }
+}
+
 
 
 /* style project rows based on status (late, due today) */

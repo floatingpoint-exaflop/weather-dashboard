@@ -26,13 +26,18 @@ h6 {
 .header,
 .custom-card-header,
 .btn-custom {
-  background-color: var(--darkblue);
-  color: var(--light);
+  background: rgb(132,199,242);
+  background: linear-gradient(
+    90deg,
+    rgba(132,199,242,1) 0%,
+    rgba(123,232,245,1) 51%,
+    rgba(34,141,163,1) 100%);
 }
 
 .btn-custom:hover {
-  color: var(--lightblue);
+  color: #303394;
 }
+
 
 .swim-lanes {
   min-height: 60vh;

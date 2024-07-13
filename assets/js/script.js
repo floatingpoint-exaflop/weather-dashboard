@@ -11,7 +11,8 @@ function displayTime() {
   const rightNow = dayjs().format('MMM DD, YYYY [at] hh:mm:ss a');
   timeDisplayEl.text(rightNow);
 }
-
+displayTime();
+setInterval(displayTime, 1000);
 // ? Reads forecasts from localStorage and return/parse the JSON to an array of forecast objects.
 // ? If there are no forecasts in localStorage, it initializes an empty array ([]) and returns it.
 function readForecastsFromStorage() {

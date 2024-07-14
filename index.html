@@ -113,84 +113,75 @@
           </div>
           <!-- This is where we will dump a list of buttons -->
           <div id="history-display">
+          <!--EXAMPLE OF DATA TO BE DUMPED ITERATIVELY HERE: --> 
           <!-- <button type="submit" class="btn btn-custom col-12 d-flex">
-            Chicago
-          </button>
-          <button type="submit" class="btn btn-custom col-12 d-flex">
-            Minneapolis
-          </button>
-          <button type="submit" class="btn btn-custom col-12 d-flex">
-            High Charity
-          </button>
-          <button type="submit" class="btn btn-custom col-12 d-flex">
-            Nipton
-          </button> -->
+            Chicago -->
           </div>
         </div>
           <!-- Divider between form and forecasts -->
-        <div  class="col-md col-xl-10">
+        <div class="col-md col-xl-10">
           <!-- Forecasts: Today's forecast goes directive in divider1 and the five-day forecast goes in divider2, which is within divider1 -->
-          <div id=divider-today class="col-12 d-flex">
-            <!-- <div id="forecast-today" class="card border-light mb-2 lane flex-grow-1">
+          <div id='divider-today' class="col-12 d-flex">
+            <div id="forecast-today" class="card border-light mb-2 lane flex-grow-1">
               <div class="card-header bg-white">
-                <h2 class="card-title mb-1"><span id="today-insert-city"></span>Today <span id="today-insert-date"></span></h2>
+                <h2 class="card-title mb-1"><span id="today-insert-city"></span>Today<span id="today-insert-date"></span></h2>
               </div>
               <div class="card-body bg-light">
-                <div></div>
+                <span id="contents-today"></span>
               </div>
-              </div> -->
+              </div>
           </div>
           <div id=divider-5day class="row text-center d-flex justify-content-between">
-            <!-- <div class="custom-col-20">
+            <div class="custom-col-20">
               <div id="5day-1" class="card border-light mb-2 lane flex-grow-1">
                 <div class="card-header bg-white">
-                  <h2 class="card-title mb-1">66/66/2024</h2>
+                  <h2 id="date-day1" class="card-title mb-1"></h2>
                 </div>
                 <div class="card-body bg-light">
-                  <div></div>
+                  <span id="contents-day1"></span>
                 </div>
                 </div>
             </div>
             <div class="custom-col-20">
               <div id="5day-2" class="card border-light mb-2 lane flex-grow-1">
                 <div class="card-header bg-white">
-                  <h2 class="card-title mb-1">66/67/2024</h2>
+                  <h2 id="date-day2" class="card-title mb-1"></h2>
                 </div>
                 <div class="card-body bg-light">
-                  <div></div>
+                  <span id="contents-day2"></span>
                 </div>
               </div>
               </div>
               <div class="custom-col-20">
                 <div id="5day-3" class="card border-light mb-2 lane flex-grow-1">
                   <div class="card-header bg-white">
-                    <h2 class="card-title mb-1">66/68/2024</h2>
+                    <h2 id="date-day3" class="card-title mb-1"></h2>
                   </div>
                   <div class="card-body bg-light">
-                    <div></div>
+                    <span id="contents-day3"></span>
                 </div>
                 </div>
             </div>
             <div class="custom-col-20">
               <div id="5day-4" class="card border-light mb-2 lane flex-grow-1">
                 <div class="card-header bg-white">
-                  <h2 class="card-title mb-1">66/69/2024</h2>
+                  <h2 id="date-day4" class="card-title mb-1"></h2>
                 </div>
                 <div class="card-body bg-light">
-                  <div></div>
+                  <span id="contents-day4"></span>
                 </div>
                 </div>
             </div>
             <div class="custom-col-20">
               <div id="5day-5" class="card border-light mb-2 lane flex-grow-1">
                 <div class="card-header bg-white">
-                  <h2 class="card-title mb-1">66/70/2024</h2>
+                  <h2 id="date-day5" class="card-title mb-1"></h2>
                 </div>
                 <div class="card-body bg-light">
-                  <div></div>
+                  <span id="contents-day5"></span>
                 </div>
                 </div>
-            </div> -->
+            </div>
           </div>
         </div>
       </div>
@@ -208,7 +199,7 @@
       integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
       crossorigin="anonymous"
     ></script>
-    <!-- <script src="./assets/js/script.js"></script> -->
-    <script src="./form.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <!-- <script src="./form.js"></script> -->
   </body>
 </html>

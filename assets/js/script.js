@@ -62,55 +62,46 @@ function getWeather(lat, lon){
   })
 }
 
+
 function printWeather(data) {
-  //Today
-  document.getElementById('today-insert-city').innerHTML= data.city.name;
-  document.getElementById('icon-today').innerHTML= `<img src="http://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png" width="40px" height="40px">`;
+  function findForecastIndex(daysFromToday) {
+      const targetDate = dayjs().add(daysFromToday, 'day').format('YYYY-MM-DD');
+      for (let i = 0; i < data.list.length; i++) {
+          if (data.list[i].dt_txt.startsWith(targetDate)) {
+              return i;
+          }
+      }
+      return 0;
+  }
 
-  document.getElementById('temp-today').innerHTML= `Temperature:
-   ${data.list[0].main.temp} °F`;
-  document.getElementById('wind-today').innerHTML= `Wind Speed: ${data.list[0].wind.speed} MPH`;
-  document.getElementById('humidity-today').innerHTML= `Humidity: ${data.list[0].main.humidity} %`;
+  // Today
+  const todayIndex = findForecastIndex(0);
+  if (todayIndex !== -1) {
+      document.getElementById('today-insert-city').innerHTML = data.city.name;
+      document.getElementById('icon-today').innerHTML = `<img src="http://openweathermap.org/img/w/${data.list[todayIndex].weather[0].icon}.png" width="40px" height="40px">`;
+      document.getElementById('temp-today').innerHTML = `Temperature: ${data.list[todayIndex].main.temp} °F`;
+      document.getElementById('wind-today').innerHTML = `Wind Speed: ${data.list[todayIndex].wind.speed} MPH`;
+      document.getElementById('humidity-today').innerHTML = `Humidity: ${data.list[todayIndex].main.humidity} %`;
+  } else {
+      console.error("Today's weather data not found");
+  }
 
-  //Day 1
-  
-  document.getElementById('date-day1').innerHTML= data.list[7].dt_txt
-  document.getElementById('icon-day1').innerHTML= `<img src="http://openweathermap.org/img/w/${data.list[7].weather[0].icon}.png" width="40px" height="40px">`;
-  document.getElementById('temp-day1').innerHTML= `Temperature: ${data.list[7].main.temp} °F`;
-  document.getElementById('wind-day1').innerHTML= `Wind Speed: ${data.list[7].wind.speed} MPH`;
-  document.getElementById('humidity-day1').innerHTML= `Humidity: ${data.list[7].main.humidity} %`;
-
-  //Day 2
-  document.getElementById('date-day2').innerHTML= data.list[14].dt_txt
-  document.getElementById('icon-day2').innerHTML= `<img src="http://openweathermap.org/img/w/${data.list[14].weather[0].icon}.png" width="40px" height="40px">`;
-  document.getElementById('temp-day2').innerHTML= `Temperature: ${data.list[14].main.temp} °F`;
-  document.getElementById('wind-day2').innerHTML= `Wind Speed: ${data.list[14].wind.speed} MPH`;
-  document.getElementById('humidity-day2').innerHTML= `Humidity: ${data.list[14].main.humidity} %`;
-
-
-  //Day 3
-  document.getElementById('date-day3').innerHTML= data.list[23].dt_txt
-  document.getElementById('icon-day3').innerHTML= `<img src="http://openweathermap.org/img/w/${data.list[23].weather[0].icon}.png" width="40px" height="40px">`;
-  document.getElementById('temp-day3').innerHTML= `Temperature: ${data.list[23].main.temp} °F`;
-  document.getElementById('wind-day3').innerHTML= `Wind Speed: ${data.list[23].wind.speed} MPH`;
-  document.getElementById('humidity-day3').innerHTML= `Humidity: ${data.list[23].main.humidity} %`;
-
-
-  //Day 4
-  document.getElementById('date-day4').innerHTML= data.list[29].dt_txt
-  document.getElementById('icon-day4').innerHTML= `<img src="http://openweathermap.org/img/w/${data.list[29].weather[0].icon}.png" width="40px" height="40px">`;
-  document.getElementById('temp-day4').innerHTML= `Temperature: ${data.list[29].main.temp} °F`;
-  document.getElementById('wind-day4').innerHTML= `Wind Speed: ${data.list[29].wind.speed} MPH`;
-  document.getElementById('humidity-day4').innerHTML= `Humidity: ${data.list[29].main.humidity} %`;
-
-
-  //Day 5
-  document.getElementById('date-day5').innerHTML= data.list[35].dt_txt
-  document.getElementById('icon-day5').innerHTML= `<img src="http://openweathermap.org/img/w/${data.list[35].weather[0].icon}.png" width="40px" height="40px">`;
-  document.getElementById('temp-day5').innerHTML= `Temperature: ${data.list[35].main.temp} °F`;
-  document.getElementById('wind-day5').innerHTML= `Wind Speed: ${data.list[35].wind.speed} MPH`;
-  document.getElementById('humidity-day5').innerHTML= `Humidity: ${data.list[35].main.humidity} %`;
+  // Next 5 Days
+  for (let day = 1; day <= 5; day++) {
+      const index = findForecastIndex(day);
+      if (index !== -1) {
+          document.getElementById(`date-day${day}`).innerHTML = data.list[index].dt_txt.split(' ')[0];
+          document.getElementById(`icon-day${day}`).innerHTML = `<img src="http://openweathermap.org/img/w/${data.list[index].weather[0].icon}.png" width="40px" height="40px">`;
+          document.getElementById(`temp-day${day}`).innerHTML = `Temperature: ${data.list[index].main.temp} °F`;
+          document.getElementById(`wind-day${day}`).innerHTML = `Wind Speed: ${data.list[index].wind.speed} MPH`;
+          document.getElementById(`humidity-day${day}`).innerHTML = `Humidity: ${data.list[index].main.humidity} %`;
+      } else {
+          console.error(`Weather data for day ${day} not found`);
+      }
+  }
 }
+
+
 
 
 

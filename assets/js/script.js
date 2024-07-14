@@ -63,47 +63,58 @@ function getWeather(lat, lon){
 }
 
 function printWeather(data) {
-
-
   //Today
-
   document.getElementById('today-insert-city').innerHTML= data.city.name;
-  document.getElementById('icon-today').innerHTML= data.list[0].weather[0].icon;
-  document.getElementById('temp-today').innerHTML= `Temperature: ${data.list[0].main.temp} °F`;
+  document.getElementById('icon-today').innerHTML= `<img src="http://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png" width="40px" height="40px">`;
+
+  document.getElementById('temp-today').innerHTML= `Temperature:
+   ${data.list[0].main.temp} °F`;
   document.getElementById('wind-today').innerHTML= `Wind Speed: ${data.list[0].wind.speed} MPH`;
   document.getElementById('humidity-today').innerHTML= `Humidity: ${data.list[0].main.humidity} %`;
 
   //Day 1
   
   document.getElementById('date-day1').innerHTML= data.list[7].dt_txt
-  document.getElementById('icon-day1').innerHTML= data.list[7].weather[0].icon;
+  document.getElementById('icon-day1').innerHTML= `<img src="http://openweathermap.org/img/w/${data.list[7].weather[0].icon}.png" width="40px" height="40px">`;
   document.getElementById('temp-day1').innerHTML= `Temperature: ${data.list[7].main.temp} °F`;
   document.getElementById('wind-day1').innerHTML= `Wind Speed: ${data.list[7].wind.speed} MPH`;
   document.getElementById('humidity-day1').innerHTML= `Humidity: ${data.list[7].main.humidity} %`;
 
   //Day 2
-  document.getElementById('contents-day2').innerHTML= data.list[9].main.temp;
-  document.getElementById('contents-precipitation-day2').innerHTML=data.list[9].rain;
+  document.getElementById('date-day2').innerHTML= data.list[14].dt_txt
+  document.getElementById('icon-day2').innerHTML= `<img src="http://openweathermap.org/img/w/${data.list[14].weather[0].icon}.png" width="40px" height="40px">`;
+  document.getElementById('temp-day2').innerHTML= `Temperature: ${data.list[14].main.temp} °F`;
+  document.getElementById('wind-day2').innerHTML= `Wind Speed: ${data.list[14].wind.speed} MPH`;
+  document.getElementById('humidity-day2').innerHTML= `Humidity: ${data.list[14].main.humidity} %`;
 
 
   //Day 3
-  document.getElementById('contents-day3').innerHTML= data.list[12].main.temp;
-  document.getElementById('contents-precipitation-day3').innerHTML= data.list[12].rain;
+  document.getElementById('date-day3').innerHTML= data.list[23].dt_txt
+  document.getElementById('icon-day3').innerHTML= `<img src="http://openweathermap.org/img/w/${data.list[23].weather[0].icon}.png" width="40px" height="40px">`;
+  document.getElementById('temp-day3').innerHTML= `Temperature: ${data.list[23].main.temp} °F`;
+  document.getElementById('wind-day3').innerHTML= `Wind Speed: ${data.list[23].wind.speed} MPH`;
+  document.getElementById('humidity-day3').innerHTML= `Humidity: ${data.list[23].main.humidity} %`;
 
 
   //Day 4
-  document.getElementById('contents-day4').innerHTML= data.list[15].main.temp;
-  document.getElementById('contents-precipitation-day4').innerHTML= data.list[15].rain;
+  document.getElementById('date-day4').innerHTML= data.list[29].dt_txt
+  document.getElementById('icon-day4').innerHTML= `<img src="http://openweathermap.org/img/w/${data.list[29].weather[0].icon}.png" width="40px" height="40px">`;
+  document.getElementById('temp-day4').innerHTML= `Temperature: ${data.list[29].main.temp} °F`;
+  document.getElementById('wind-day4').innerHTML= `Wind Speed: ${data.list[29].wind.speed} MPH`;
+  document.getElementById('humidity-day4').innerHTML= `Humidity: ${data.list[29].main.humidity} %`;
 
 
   //Day 5
-  document.getElementById('contents-day5').innerHTML= data.list[18].main.temp;
-  document.getElementById('contents-precipitation-day5').innerHTML= data.list[18].rain
+  document.getElementById('date-day5').innerHTML= data.list[35].dt_txt
+  document.getElementById('icon-day5').innerHTML= `<img src="http://openweathermap.org/img/w/${data.list[35].weather[0].icon}.png" width="40px" height="40px">`;
+  document.getElementById('temp-day5').innerHTML= `Temperature: ${data.list[35].main.temp} °F`;
+  document.getElementById('wind-day5').innerHTML= `Wind Speed: ${data.list[35].wind.speed} MPH`;
+  document.getElementById('humidity-day5').innerHTML= `Humidity: ${data.list[35].main.humidity} %`;
 }
 
 
 
-//Takes the city, state, and country values received from the getGPS1 function and makes a call for the for the GPS API.
+//Takes the city, state, and country values received from the getGPS1 function and makes a call for the for the GPS API. Can be called from new search or historical re-search.
 function getGPS2(city, state, country){
   const apiKey = '33bdfcb4f69a12d7c8b759f0808a5e61';
   const geourl = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&appid=${apiKey}`;
@@ -128,6 +139,7 @@ function getGPS2(city, state, country){
 });
 }
 
+//kicks off search using form inputs
 function getGPS1(){
   const historyItems = JSON.parse(localStorage.getItem('searchhistory')) || [];
   if (historyItems.length > 0) {
@@ -137,6 +149,7 @@ function getGPS1(){
       console.log('No search history found.');
   }
   };
+
 
 
 function writeToLocalStorage(event){
@@ -166,6 +179,8 @@ function writeToLocalStorage(event){
         localStorage.setItem('searchhistory', JSON.stringify(historyArray));
         cityInputEl.val('');
         usStateInputEl.val(''); 
+        loadSearchHistory();
+        getGPS1();
     } else {
         //If the city field is empty:
         alert(`You must enter a City. State is an optional field.`);
@@ -173,6 +188,6 @@ function writeToLocalStorage(event){
 };
 
 searchFormEl.on('submit', writeToLocalStorage);
-searchFormEl.on('submit', loadSearchHistory);
-searchFormEl.on('submit', getGPS1);
+// searchFormEl.on('submit', loadSearchHistory);
+// searchFormEl.on('submit', getGPS1);
 loadSearchHistory();

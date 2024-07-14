@@ -16,6 +16,8 @@ Thanks to Eric Meyer for the [start.css](http://meyerweb.com/eric/tools/css/rese
 
 Shoutout to [this blog post](https://www.seoptimer.com/blog/favicon-not-showing-up/) and [this tool](https://favicon.io/favicon-converter/) for the help with my favicon stuff.
 
+I used's [OpenWeather's Geocoding API](https://openweathermap.org/api/geocoding-api) to retreive GPS data from specified cities.
+
 I used's [OpenWeather's 5 Day Weather Forecast](https://openweathermap.org/forecast5) as my weather data API.
 
 For reference on working with the OpenWeather API, I referenced a [Blog on API keys](https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys).

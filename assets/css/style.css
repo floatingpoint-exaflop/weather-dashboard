@@ -4,10 +4,9 @@ body {
 }
 
 h1,h2,h4 {
-  font-weight: 700;
+  font-weight: 750;
 }
 
-/* header section, header of search form, and button colors */
 .header,
 .custom-card-header,
 .btn-custom {
@@ -23,19 +22,40 @@ h1,h2,h4 {
   color: #303394;
 }
 
-
 .card {
   min-height: 30vh;
 }
 
-#history-display button {
+#history-display button, .btn-custom {
   margin-bottom: 10px;
   margin-top: 10px;
+  font-size: 30px;
 }
 
 .custom-col-20 {
   flex: 0 0 20%;
   max-width: 20%;
+}
+
+#temp-today,
+#wind-today,
+#humidity-today,
+#temp-day1,
+#wind-day1,
+#humidity-day1,
+#temp-day2,
+#wind-day2,
+#humidity-day2,
+#temp-day3,
+#wind-day3,
+#humidity-day3,
+#temp-day4,
+#wind-day4,
+#humidity-day4,
+#temp-day5,
+#wind-day5,
+#humidity-day5 {
+  font-size: 30px;
 }
 
 
@@ -73,6 +93,29 @@ h1,h2,h4 {
     white-space: nowrap;
   overflow: hidden;
   }
+  #history-display button, .btn-custom {
+    font-size: 20px;
+  }
+  #temp-today,
+  #wind-today,
+  #humidity-today,
+  #temp-day1,
+  #wind-day1,
+  #humidity-day1,
+  #temp-day2,
+  #wind-day2,
+  #humidity-day2,
+  #temp-day3,
+  #wind-day3,
+  #humidity-day3,
+  #temp-day4,
+  #wind-day4,
+  #humidity-day4,
+  #temp-day5,
+  #wind-day5,
+  #humidity-day5 {
+    font-size: 20px;
+  }
 }
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
@@ -84,5 +127,28 @@ h1,h2,h4 {
     font-size: 25px;
     white-space: nowrap;
   overflow: hidden;
+  }
+  #history-display button, .btn-custom {
+    font-size: 15px;
+  }
+  #temp-today,
+  #wind-today,
+  #humidity-today,
+  #temp-day1,
+  #wind-day1,
+  #humidity-day1,
+  #temp-day2,
+  #wind-day2,
+  #humidity-day2,
+  #temp-day3,
+  #wind-day3,
+  #humidity-day3,
+  #temp-day4,
+  #wind-day4,
+  #humidity-day4,
+  #temp-day5,
+  #wind-day5,
+  #humidity-day5 {
+    font-size: 15px;
   }
 }

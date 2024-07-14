@@ -11,19 +11,6 @@ const timeDisplayEl = $('#time-display');
   // ? This is just where the clock goes in the header
 const historyDisplayEl = $('#history-display');
   // ? This is a div element where we can dump the user history.
-  const todayDisplayEl = $("contents-today");
-// ? This is a div element where we can dump today's forecast on a larger appended tile.
-const firstDateDisplayEl = $('#date-day1');
-const firstContentsDisplayEl = $('#contents-day1');
-const secondDateDisplayEl = $('#date-day2');
-const secondContentsDisplayEl = $('#contents-day2');
-const thirdDateDisplayEl = $('#date-day3');
-const thirdContentsDisplayEl = $('#contents-day3');
-const fourthDateDisplayEl = $('#date-day4');
-const fourthContentsDisplayEl = $('#contents-day4');
-const fifthDateDisplayEl = $('#date-day5');
-const fifthContentsDisplayEl = $('#contents-day5');
-// ? This is a div element where we can dump today's forecast on a larger appended tile.
 
 //--------------------Functions------------------------
 
@@ -53,28 +40,11 @@ function loadSearchHistory() {
 }
 
 
-function clrWeatherTiles() {
-  // const historyItems = JSON.parse(localStorage.getItem('searchhistory')) || [];
-
-  todayDisplayEl.empty(); // Clear today's forecast
-    firstDateDisplayEl.empty(); //And the other forecasts
-      firstContentsDisplayEl.empty();
-    secondDateDisplayEl.empty();
-      secondContentsDisplayEl.empty();
-    thirdDateDisplayEl.empty();
-      thirdContentsDisplayEl.empty();
-    fourthDateDisplayEl.empty();
-      fourthContentsDisplayEl.empty();
-    fifthDateDisplayEl.empty();
-      fifthContentsDisplayEl.empty();
-  };
-
-
-
 //Takes the lat and lon values received from 'data' in the getGPS2 function and passes them to a call for the weather API.
 function getWeather(lat, lon){
   const apiKey = '33bdfcb4f69a12d7c8b759f0808a5e61';
   const weatherurl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
+  
   console.log('I am calling the Weather API...');
   fetch(weatherurl)
   .then(response => {
@@ -85,17 +55,53 @@ function getWeather(lat, lon){
   })
   .then(data => {
       console.log(data);
-      // document.getElementById('contents-today').innerHTML=data.list[0].main.temp;
-      for (let index = 0; index < data.list.length; index++) {
-        document.getElementById('contents-today').innerHTML=data.list[index].main.temp;
-        console.log(data.list[index].main)
-      }
-  })
+      printWeather(data);
+      })
   .catch(error => {
       console.error('There was a problem with the fetch operation:', error);
-  });
-  // clrWeatherTiles();
+  })
 }
+
+function printWeather(data) {
+
+
+  //Today
+
+  document.getElementById('today-insert-city').innerHTML= data.city.name;
+  document.getElementById('icon-today').innerHTML= data.list[0].weather[0].icon;
+  document.getElementById('temp-today').innerHTML= `Temperature: ${data.list[0].main.temp} °F`;
+  document.getElementById('wind-today').innerHTML= `Wind Speed: ${data.list[0].wind.speed} MPH`;
+  document.getElementById('humidity-today').innerHTML= `Humidity: ${data.list[0].main.humidity} %`;
+
+  //Day 1
+  
+  document.getElementById('date-day1').innerHTML= data.list[7].dt_txt
+  document.getElementById('icon-day1').innerHTML= data.list[7].weather[0].icon;
+  document.getElementById('temp-day1').innerHTML= `Temperature: ${data.list[7].main.temp} °F`;
+  document.getElementById('wind-day1').innerHTML= `Wind Speed: ${data.list[7].wind.speed} MPH`;
+  document.getElementById('humidity-day1').innerHTML= `Humidity: ${data.list[7].main.humidity} %`;
+
+  //Day 2
+  document.getElementById('contents-day2').innerHTML= data.list[9].main.temp;
+  document.getElementById('contents-precipitation-day2').innerHTML=data.list[9].rain;
+
+
+  //Day 3
+  document.getElementById('contents-day3').innerHTML= data.list[12].main.temp;
+  document.getElementById('contents-precipitation-day3').innerHTML= data.list[12].rain;
+
+
+  //Day 4
+  document.getElementById('contents-day4').innerHTML= data.list[15].main.temp;
+  document.getElementById('contents-precipitation-day4').innerHTML= data.list[15].rain;
+
+
+  //Day 5
+  document.getElementById('contents-day5').innerHTML= data.list[18].main.temp;
+  document.getElementById('contents-precipitation-day5').innerHTML= data.list[18].rain
+}
+
+
 
 //Takes the city, state, and country values received from the getGPS1 function and makes a call for the for the GPS API.
 function getGPS2(city, state, country){

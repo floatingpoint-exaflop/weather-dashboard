@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./assets/css/reset.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="icon" href="./assets/favicon/favicon.ico" type=“image/x-icon”/>
@@ -124,10 +124,16 @@
           <div id='divider-today' class="col-12 d-flex">
             <div id="forecast-today" class="card border-light mb-2 lane flex-grow-1">
               <div class="card-header bg-white">
-                <h2 class="card-title mb-1"><span id="today-insert-city"></span>Today<span id="today-insert-date"></span></h2>
+                <h2 class="card-title mb-1">Today in <span id="today-insert-city"></span></h2>
               </div>
               <div class="card-body bg-light">
-                <span id="contents-today"></span>
+                <span id="icon-today"></span>
+                <br/>
+                <span id="temp-today"></span>
+                <br/>
+                <span id="wind-today"></span>
+                <br/>
+                <span id="humidity-today"></span>
               </div>
               </div>
           </div>
@@ -138,7 +144,13 @@
                   <h2 id="date-day1" class="card-title mb-1"></h2>
                 </div>
                 <div class="card-body bg-light">
-                  <span id="contents-day1"></span>
+                  <span id="icon-day1"></span>
+                  <br/>
+                  <span id="temp-day1"></span>
+                  <br/>
+                  <span id="wind-day1"></span>
+                  <br/>
+                  <span id="humidity-day1"></span>
                 </div>
                 </div>
             </div>
@@ -148,7 +160,13 @@
                   <h2 id="date-day2" class="card-title mb-1"></h2>
                 </div>
                 <div class="card-body bg-light">
-                  <span id="contents-day2"></span>
+                  <span id="icon-day2"></span>
+                  <br/>
+                  <span id="temp-day2"></span>
+                  <br/>
+                  <span id="wind-day2"></span>
+                  <br/>
+                  <span id="humidity-day2"></span>
                 </div>
               </div>
               </div>
@@ -158,8 +176,14 @@
                     <h2 id="date-day3" class="card-title mb-1"></h2>
                   </div>
                   <div class="card-body bg-light">
-                    <span id="contents-day3"></span>
-                </div>
+                    <span id="icon-day3"></span>
+                    <br/>
+                    <span id="temp-day3"></span>
+                    <br/>
+                    <span id="wind-day3"></span>
+                    <br/>
+                    <span id="humidity-day3"></span>
+                  </div>
                 </div>
             </div>
             <div class="custom-col-20">
@@ -168,7 +192,13 @@
                   <h2 id="date-day4" class="card-title mb-1"></h2>
                 </div>
                 <div class="card-body bg-light">
-                  <span id="contents-day4"></span>
+                  <span id="icon-day4"></span>
+                  <br/>
+                  <span id="temp-day4"></span>
+                  <br/>
+                  <span id="wind-day4"></span>
+                  <br/>
+                  <span id="humidity-day4"></span>
                 </div>
                 </div>
             </div>
@@ -178,7 +208,13 @@
                   <h2 id="date-day5" class="card-title mb-1"></h2>
                 </div>
                 <div class="card-body bg-light">
-                  <span id="contents-day5"></span>
+                  <span id="icon-day5"></span>
+                  <br/>
+                  <span id="temp-day5"></span>
+                  <br/>
+                  <span id="wind-day5"></span>
+                  <br/>
+                  <span id="humidity-day5"></span>
                 </div>
                 </div>
             </div>

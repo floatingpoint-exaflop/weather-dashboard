@@ -39,6 +39,7 @@ function loadSearchHistory() {
   });
 }
 
+//-------------Weather  retrieval JSON-----------------
 
 //Takes the lat and lon values received from 'data' in the getGPS2 function and passes them to a call for the weather API.
 function getWeather(lat, lon){
@@ -62,6 +63,7 @@ function getWeather(lat, lon){
   })
 }
 
+//-------Date retrieval and displaying weather---------
 
 function printWeather(data) {
   function findForecastIndex(daysFromToday) {
@@ -74,7 +76,7 @@ function printWeather(data) {
       return 0;
   }
 
-  // Today
+  // Populate the big tile for today
   const todayIndex = findForecastIndex(0);
   if (todayIndex !== -1) {
       document.getElementById('today-insert-city').innerHTML = data.city.name;
@@ -86,7 +88,7 @@ function printWeather(data) {
       console.error("Today's weather data not found");
   }
 
-  // Next 5 Days
+  // Populate smaller tiles for the next 5 days.
   for (let day = 1; day <= 5; day++) {
       const index = findForecastIndex(day);
       if (index !== -1) {
@@ -101,9 +103,7 @@ function printWeather(data) {
   }
 }
 
-
-
-
+//----------------GPS Retrieval JSON-------------------
 
 //Takes the city, state, and country values received from the getGPS1 function and makes a call for the for the GPS API. Can be called from new search or historical re-search.
 function getGPS2(city, state, country){
@@ -130,6 +130,8 @@ function getGPS2(city, state, country){
 });
 }
 
+//------Getting values to pass to GPS from localStorage-------
+
 //kicks off search using form inputs
 function getGPS1(){
   const historyItems = JSON.parse(localStorage.getItem('searchhistory')) || [];
@@ -141,7 +143,7 @@ function getGPS1(){
   }
   };
 
-
+//---Setting form values to localStorage for use and history----
 
 function writeToLocalStorage(event){
     event.preventDefault();
@@ -177,6 +179,8 @@ function writeToLocalStorage(event){
         alert(`You must enter a City. State is an optional field.`);
     }
 };
+
+//---Event listener and auto loading of search history upon page landing/load----
 
 searchFormEl.on('submit', writeToLocalStorage);
 // searchFormEl.on('submit', loadSearchHistory);

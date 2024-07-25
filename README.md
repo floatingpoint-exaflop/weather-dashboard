@@ -1,6 +1,6 @@
 # Module 6 Challenge: Server-Side APIs - Weather Dashboard
 
-This Homework assignment was completed for Unit Six of the U of M Bootcamp, to practice javascript server APIs, building out a dashboard to view drag-and-drop weather tiles. The complete code allows a user to input searches for a city and receive local weather information, both present and future (in a 5-day forcast). A built-in search history saves a clickable record of searching that particular city which allows the user to rerun that search.
+This Homework assignment was completed for Unit Six of the U of M Bootcamp, to practice javascript server APIs, building out a dashboard to view drag-and-drop weather tiles. The complete code allows a user to input searches for a city and receive local weather information, both present and future (in a 5-day forcast). A built-in search history saves a clickable record of searching that particular city which allows the user to rerun that search, even if they have left the page.
 
 ## Link to Deployed Version
 [Click here to view the deployed webpage.](https://floatingpoint-exaflop.github.io/weather-dashboard)

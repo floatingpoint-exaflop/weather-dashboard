@@ -44,7 +44,7 @@ function loadSearchHistory() {
 //Takes the lat and lon values received from 'data' in the getGPS2 function and passes them to a call for the weather API.
 function getWeather(lat, lon){
   const apiKey = '33bdfcb4f69a12d7c8b759f0808a5e61';
-  const weatherurl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
+  const weatherurl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
   
   console.log('I am calling the Weather API...');
   fetch(weatherurl)
@@ -80,7 +80,7 @@ function printWeather(data) {
   const todayIndex = findForecastIndex(0);
   if (todayIndex !== -1) {
       document.getElementById('today-insert-city').innerHTML = data.city.name;
-      document.getElementById('icon-today').innerHTML = `<img src="http://openweathermap.org/img/w/${data.list[todayIndex].weather[0].icon}.png" width="40px" height="40px">`;
+      document.getElementById('icon-today').innerHTML = `<img src="https://openweathermap.org/img/w/${data.list[todayIndex].weather[0].icon}.png" width="40px" height="40px">`;
       document.getElementById('temp-today').innerHTML = `Temperature: ${data.list[todayIndex].main.temp} °F`;
       document.getElementById('wind-today').innerHTML = `Wind Speed: ${data.list[todayIndex].wind.speed} MPH`;
       document.getElementById('humidity-today').innerHTML = `Humidity: ${data.list[todayIndex].main.humidity} %`;
@@ -93,7 +93,7 @@ function printWeather(data) {
       const index = findForecastIndex(day);
       if (index !== -1) {
           document.getElementById(`date-day${day}`).innerHTML = data.list[index].dt_txt.split(' ')[0];
-          document.getElementById(`icon-day${day}`).innerHTML = `<img src="http://openweathermap.org/img/w/${data.list[index].weather[0].icon}.png" width="40px" height="40px">`;
+          document.getElementById(`icon-day${day}`).innerHTML = `<img src="https://openweathermap.org/img/w/${data.list[index].weather[0].icon}.png" width="40px" height="40px">`;
           document.getElementById(`temp-day${day}`).innerHTML = `Temperature: ${data.list[index].main.temp} °F`;
           document.getElementById(`wind-day${day}`).innerHTML = `Wind Speed: ${data.list[index].wind.speed} MPH`;
           document.getElementById(`humidity-day${day}`).innerHTML = `Humidity: ${data.list[index].main.humidity} %`;
@@ -108,7 +108,7 @@ function printWeather(data) {
 //Takes the city, state, and country values received from the getGPS1 function and makes a call for the for the GPS API. Can be called from new search or historical re-search.
 function getGPS2(city, state, country){
   const apiKey = '33bdfcb4f69a12d7c8b759f0808a5e61';
-  const geourl = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&appid=${apiKey}`;
+  const geourl = `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&appid=${apiKey}`;
   console.log('I am calling the GPS API...');
   fetch(geourl)
   .then(response => {
